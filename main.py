@@ -11,7 +11,7 @@ from rgbmatrix5x5 import RGBMatrix5x5
 rgbmatrix5x5 = RGBMatrix5x5()
 
 rgbmatrix5x5.set_clear_on_exit()
-rgbmatrix5x5.set_brightness(0.8)
+rgbmatrix5x5.set_brightness(0.5)
 
 height = rgbmatrix5x5.height
 width = rgbmatrix5x5.width
