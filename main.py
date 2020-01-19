@@ -20,6 +20,19 @@ GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 counter = 0
 clkLastState = GPIO.input(clk)
 
+rgbmatrix5x5 = RGBMatrix5x5()
+
+rgbmatrix5x5.set_clear_on_exit()
+rgbmatrix5x5.set_brightness(0.5)
+
+height = rgbmatrix5x5.height
+width = rgbmatrix5x5.width
+
+if height == width:
+    delta = 0
+else:
+    delta = 2
+
 def setFace(number):
     if number is 2:
         r = int(1 * 255.0)
@@ -50,18 +63,7 @@ try:
 finally:
         GPIO.cleanup()
 
-rgbmatrix5x5 = RGBMatrix5x5()
 
-rgbmatrix5x5.set_clear_on_exit()
-rgbmatrix5x5.set_brightness(0.5)
-
-height = rgbmatrix5x5.height
-width = rgbmatrix5x5.width
-
-if height == width:
-    delta = 0
-else:
-    delta = 2
 
 
 
