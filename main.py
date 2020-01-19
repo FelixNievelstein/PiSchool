@@ -150,7 +150,7 @@ try:
                 btnAState = GPIO.input(buttonA)
                 btnBState = GPIO.input(buttonB)
 
-                if btnAState != lastStateBtnA
+                if btnAState != lastStateBtnA:
                     print("Button A")
                     print(buttonAState)
                     lastStateBtnA = btnAState
