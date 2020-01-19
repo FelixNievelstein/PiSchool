@@ -153,6 +153,7 @@ try:
                 if btnAState != lastStateBtnA
                     print("Button A")
                     print(buttonAState)
+                    lastStateBtnA = btnAState
                 if clkState != clkLastState:
                         if dtState != clkState:
                                 counter += 1
