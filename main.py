@@ -20,6 +20,19 @@ GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 counter = 0
 clkLastState = GPIO.input(clk)
 
+def setFace(number):
+    if number is 2:
+        r = int(1 * 255.0)
+        g = int(0.0 * 255.0)
+        b = int(0.0 * 255.0)
+        rgbmatrix5x5.set_pixel(0, 0, r, g, b)
+        rgbmatrix5x5.set_pixel(0, 4, r, g, b)
+        rgbmatrix5x5.show()
+    else:
+        for z in list(range(1, 10)[::-1]) + list(range(1, 10)):
+            rgbmatrix5x5.set_pixel(0, 0, r, g, b)
+            rgbmatrix5x5.show()
+
 try:
 
         while True:
@@ -50,18 +63,7 @@ if height == width:
 else:
     delta = 2
 
-def setFace(number):
-    if number is 2:
-        r = int(1 * 255.0)
-        g = int(0.0 * 255.0)
-        b = int(0.0 * 255.0)
-        rgbmatrix5x5.set_pixel(0, 0, r, g, b)
-        rgbmatrix5x5.set_pixel(0, 4, r, g, b)
-        rgbmatrix5x5.show()
-    else:
-        for z in list(range(1, 10)[::-1]) + list(range(1, 10)):
-            rgbmatrix5x5.set_pixel(0, 0, r, g, b)
-            rgbmatrix5x5.show()
+
 
 
 """ def make_gaussian(fwhm):
