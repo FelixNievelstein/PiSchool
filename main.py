@@ -12,10 +12,14 @@ from time import sleep
 
 clk = 17
 dt = 18
+buttonA = 9
+buttonB = 10
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(buttonA, GPIO.IN)
+GPIO.setup(buttonB, GPIO.IN)
 
 counter = 0
 clkLastState = GPIO.input(clk)
@@ -142,6 +146,11 @@ try:
         while True:
                 clkState = GPIO.input(clk)
                 dtState = GPIO.input(dt)
+                buttonAState = GPIO.input(buttonA)
+                buttonBState = GPIO.input(buttonB)
+
+                print("Button A")
+                print(buttonAState)
                 if clkState != clkLastState:
                         if dtState != clkState:
                                 counter += 1
