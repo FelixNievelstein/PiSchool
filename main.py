@@ -35,9 +35,9 @@ else:
 
 def setFace(number):
     if number is 2:
-        r = int(1 * 255.0)
-        g = int(0.0 * 255.0)
-        b = int(0.0 * 255.0)
+        r = int(234.0)
+        g = int(43.0)
+        b = int(93.0)
         rgbmatrix5x5.set_pixel(0, 0, r, g, b)
         rgbmatrix5x5.set_pixel(4, 0, r, g, b)
         rgbmatrix5x5.set_pixel(1, 1, r, g, b)
@@ -46,6 +46,18 @@ def setFace(number):
         rgbmatrix5x5.set_pixel(3, 3, r, g, b)
         rgbmatrix5x5.set_pixel(0, 4, r, g, b)
         rgbmatrix5x5.set_pixel(2, 4, r, g, b)
+        rgbmatrix5x5.set_pixel(4, 4, r, g, b)
+        rgbmatrix5x5.show()
+    else if number is 6:
+        r = int(190.0)
+        g = int(112.0)
+        b = int(241.0)
+        rgbmatrix5x5.set_pixel(1, 0, r, g, b)
+        rgbmatrix5x5.set_pixel(3, 0, r, g, b)
+        rgbmatrix5x5.set_pixel(1, 3, r, g, b)
+        rgbmatrix5x5.set_pixel(2, 3, r, g, b)
+        rgbmatrix5x5.set_pixel(3, 3, r, g, b)
+        rgbmatrix5x5.set_pixel(0, 4, r, g, b)
         rgbmatrix5x5.set_pixel(4, 4, r, g, b)
         rgbmatrix5x5.show()
     else:
