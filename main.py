@@ -51,7 +51,7 @@ else:
     delta = 2
 
 def setFace(number):
-    if number is 2
+    if number is 2:
         r = int(1 * 255.0)
         g = int(0.0 * 255.0)
         b = int(0.0 * 255.0)
