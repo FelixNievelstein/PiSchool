@@ -48,7 +48,7 @@ def setFace(number):
         rgbmatrix5x5.set_pixel(2, 4, r, g, b)
         rgbmatrix5x5.set_pixel(4, 4, r, g, b)
         rgbmatrix5x5.show()
-    else if number is 6:
+    elif number is 6:
         r = int(190.0)
         g = int(112.0)
         b = int(241.0)
@@ -76,7 +76,7 @@ try:
                                 counter += 1
                         else:
                                 counter -= 1
-                        print counter
+                        print(counter)
                         setFace(counter)
                 clkLastState = clkState
                 sleep(0.01)
