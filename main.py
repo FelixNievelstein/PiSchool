@@ -39,12 +39,20 @@ def setFace(number):
         g = int(0.0 * 255.0)
         b = int(0.0 * 255.0)
         rgbmatrix5x5.set_pixel(0, 0, r, g, b)
+        rgbmatrix5x5.set_pixel(4, 0, r, g, b)
+        rgbmatrix5x5.set_pixel(1, 1, r, g, b)
+        rgbmatrix5x5.set_pixel(3, 1, r, g, b)
+        rgbmatrix5x5.set_pixel(1, 3, r, g, b)
+        rgbmatrix5x5.set_pixel(3, 3, r, g, b)
         rgbmatrix5x5.set_pixel(0, 4, r, g, b)
+        rgbmatrix5x5.set_pixel(2, 4, r, g, b)
+        rgbmatrix5x5.set_pixel(4, 4, r, g, b)
         rgbmatrix5x5.show()
     else:
-        for z in list(range(1, 10)[::-1]) + list(range(1, 10)):
-            rgbmatrix5x5.set_pixel(0, 0, 0, 0, 0)
-            rgbmatrix5x5.show()
+        for y in range(height):
+            for x in range(width):
+                rgbmatrix5x5.set_pixel(x, y, 0, 0, 0)
+                rgbmatrix5x5.show()
 
 try:
 
