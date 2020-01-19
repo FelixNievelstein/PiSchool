@@ -49,7 +49,7 @@ def setFace(number):
         rgbmatrix5x5.set_pixel(4, 4, r, g, b)
         rgbmatrix5x5.set_brightness(0.16)
         rgbmatrix5x5.show()
-    elif number is 6:
+    elif number is 4:
         r = int(190.0)
         g = int(112.0)
         b = int(241.0)
@@ -62,7 +62,7 @@ def setFace(number):
         rgbmatrix5x5.set_pixel(4, 4, r, g, b)
         rgbmatrix5x5.set_brightness(0.32)
         rgbmatrix5x5.show()
-    elif number is 10:
+    elif number is 6:
         r = int(0.0)
         g = int(163.0)
         b = int(248.0)
@@ -75,7 +75,7 @@ def setFace(number):
         rgbmatrix5x5.set_pixel(4, 3, r, g, b)
         rgbmatrix5x5.set_brightness(0.48)
         rgbmatrix5x5.show()
-    elif number is 14:
+    elif number is 8:
         r = int(79.0)
         g = int(216.0)
         b = int(84.0)
@@ -88,7 +88,7 @@ def setFace(number):
         rgbmatrix5x5.set_pixel(3, 3, r, g, b)        
         rgbmatrix5x5.set_brightness(0.64)
         rgbmatrix5x5.show()
-    elif number is 18:
+    elif number is 10:
         r = int(251.0)
         g = int(185.0)
         b = int(61.0)
@@ -109,7 +109,7 @@ def setFace(number):
         rgbmatrix5x5.set_pixel(3, 4, r, g, b)
         rgbmatrix5x5.set_brightness(0.8)
         rgbmatrix5x5.show()
-    elif number is 22:
+    elif number is 12:
         r = int(243.0)
         g = int(37.0)
         b = int(24.0)
