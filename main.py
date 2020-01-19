@@ -43,7 +43,7 @@ def setFace(number):
         rgbmatrix5x5.show()
     else:
         for z in list(range(1, 10)[::-1]) + list(range(1, 10)):
-            rgbmatrix5x5.set_pixel(0, 0, r, g, b)
+            rgbmatrix5x5.set_pixel(0, 0, 0, 0, 0)
             rgbmatrix5x5.show()
 
 try:
