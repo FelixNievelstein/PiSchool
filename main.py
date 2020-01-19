@@ -52,7 +52,7 @@ def setFace(number):
         for y in range(height):
             for x in range(width):
                 rgbmatrix5x5.set_pixel(x, y, 0, 0, 0)
-                rgbmatrix5x5.show()
+        rgbmatrix5x5.show()
 
 try:
 
