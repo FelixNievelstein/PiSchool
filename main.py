@@ -23,6 +23,7 @@ GPIO.setup(buttonB, GPIO.IN)
 
 counter = 0
 clkLastState = GPIO.input(clk)
+lastStateBtnA = GPIO.input(buttonA)
 
 rgbmatrix5x5 = RGBMatrix5x5()
 
@@ -146,11 +147,12 @@ try:
         while True:
                 clkState = GPIO.input(clk)
                 dtState = GPIO.input(dt)
-                buttonAState = GPIO.input(buttonA)
-                buttonBState = GPIO.input(buttonB)
+                btnAState = GPIO.input(buttonA)
+                btnBState = GPIO.input(buttonB)
 
-                print("Button A")
-                print(buttonAState)
+                if btnAState != lastStateBtnA
+                    print("Button A")
+                    print(buttonAState)
                 if clkState != clkLastState:
                         if dtState != clkState:
                                 counter += 1
