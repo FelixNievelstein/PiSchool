@@ -150,7 +150,7 @@ try:
                         print(counter)
                         setFace(counter)
                 clkLastState = clkState
-                sleep(0.001)
+                sleep(0.0001)
 finally:
         GPIO.cleanup()
 
