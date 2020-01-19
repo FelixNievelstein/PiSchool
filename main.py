@@ -109,6 +109,28 @@ def setFace(number):
         rgbmatrix5x5.set_pixel(3, 4, r, g, b)
         rgbmatrix5x5.set_brightness(0.8)
         rgbmatrix5x5.show()
+    elif number is 22:
+        r = int(243.0)
+        g = int(37.0)
+        b = int(24.0)
+        rgbmatrix5x5.set_pixel(1, 0, r, g, b)
+        rgbmatrix5x5.set_pixel(3, 0, r, g, b)
+        rgbmatrix5x5.set_pixel(0, 1, r, g, b)
+        rgbmatrix5x5.set_pixel(1, 1, r, g, b)
+        rgbmatrix5x5.set_pixel(2, 1, r, g, b)
+        rgbmatrix5x5.set_pixel(3, 1, r, g, b) 
+        rgbmatrix5x5.set_pixel(4, 1, r, g, b)
+        rgbmatrix5x5.set_pixel(0, 2, r, g, b)
+        rgbmatrix5x5.set_pixel(1, 2, r, g, b)
+        rgbmatrix5x5.set_pixel(2, 2, r, g, b)
+        rgbmatrix5x5.set_pixel(3, 2, r, g, b) 
+        rgbmatrix5x5.set_pixel(4, 2, r, g, b)
+        rgbmatrix5x5.set_pixel(1, 3, r, g, b)
+        rgbmatrix5x5.set_pixel(2, 3, r, g, b)
+        rgbmatrix5x5.set_pixel(3, 3, r, g, b)
+        rgbmatrix5x5.set_pixel(2, 4, r, g, b)
+        rgbmatrix5x5.set_brightness(1.0)
+        rgbmatrix5x5.show()
     else:
         for y in range(height):
             for x in range(width):
