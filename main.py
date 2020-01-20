@@ -8,6 +8,7 @@ except ImportError:
 from rgbmatrix5x5 import RGBMatrix5x5
 from RPi import GPIO
 from time import sleep
+from models.ColorModel import ColorModel, ColorHelper
 
 # Used GPIO Pins
 clk = 17
@@ -149,11 +150,25 @@ def setFace(number):
 def setRandom():
     clearDisplay()
     number = random.randrange(5)
+    white = ColorHelper.whiteColor()
+    if number is 0:
+        rgbmatrix5x5.set_pixel(2, 2, white.r, white.g, white.b)
+        rgbmatrix5x5.show()
+    elif number is 1:
+        rgbmatrix5x5.set_pixel(1, 3, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(3, 1, white.r, white.g, white.b)
+        rgbmatrix5x5.show()
+    elif number is 2:
+        rgbmatrix5x5.set_pixel(0, 4, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(2, 2, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(4, 0, white.r, white.g, white.b)
+        rgbmatrix5x5.show()
+
     print(number)
 
 # Run script for the program
 try:
-
+        clearDisplay()
         while True:
                 clkState = GPIO.input(clk)
                 dtState = GPIO.input(dt)
@@ -165,8 +180,6 @@ try:
                     print(btnAState)
                     lastStateBtnA = btnAState
                 if btnBState != lastStateBtnB:
-                    print("Button B")
-                    print(btnBState)
                     if btnBState is 1:
                         setRandom()
                     lastStateBtnB = btnBState
