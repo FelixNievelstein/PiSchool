@@ -210,11 +210,23 @@ def setRandom():
         rgbmatrix5x5.set_pixel(3, 4, white.r, white.g, white.b)
         rgbmatrix5x5.show()
 
+
+motorTimer = None
 def setMotor(enabled):
+    global motorTimer 
+    if motorTimer is not None:
+        motorTimer.cancel()
+
     if enabled:
         GPIO.output(motor, GPIO.HIGH)
+        motorTimer = threading.Timer(1, stopMotor)
+        motorTimer.start()
     else:
-        GPIO.output(motor, GPIO.LOW)
+        stopMotor()
+        
+
+def stopMotor():
+    GPIO.output(motor, GPIO.LOW)
 
 def clearRandom():
     clearDisplay()
