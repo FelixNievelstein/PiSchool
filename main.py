@@ -270,6 +270,7 @@ def setLightGreen():
     mDisplayTimer = threading.Timer(5.0, setLightOrangeEnd)
     mDisplayTimer.start()
     displayTimer = mDisplayTimer
+    setMotor(True)
 
 def setLightOrangeEnd():
     setOrangeLight()
