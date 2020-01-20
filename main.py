@@ -262,15 +262,14 @@ try:
                 if btnAState != lastStateBtnA:
                     if btnAState is 1:
                         setLight()
-                    lastStateBtnA = btnAState
-                    
-                    currentProgram = "light"
+                        currentProgram = "light"
+                    lastStateBtnA = btnAState                    
                 if btnBState != lastStateBtnB:
                     if btnBState is 1:
                         setRandom()
+                        currentProgram = "random"
                     lastStateBtnB = btnBState
                     currentProgram
-                    currentProgram = "random"
                 if clkState != clkLastState:
                         if dtState != clkState:
                                 counter += 1
