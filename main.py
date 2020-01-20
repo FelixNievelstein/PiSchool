@@ -166,7 +166,7 @@ def setFace(number):
 def setRandom():
     clearDisplay()
     clearTimer()
-
+    setMotor(False)
     number = random.randrange(6)
     white = ColorHelper.whiteColor()    
     global displayTimer
