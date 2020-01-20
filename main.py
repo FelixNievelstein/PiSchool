@@ -208,8 +208,8 @@ def setRandom():
 
 # Sets traffic light
 def setLight():
-    print(currentProgram)
     global currentProgram
+    print(currentProgram)
     global displayTimer
     if currentProgram is "light":
         mDisplayTimer = threading.Timer(5.0, clearDisplay)
