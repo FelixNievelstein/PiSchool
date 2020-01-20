@@ -58,7 +58,10 @@ def clearTimer():
 
 # Sets one of the smiley faces to the rgb matrix
 def setFace(number):
-    clearDisplay()
+    global currentProgram
+    if currentProgram != "face":
+        clearDisplay()
+
     clearTimer()
     if number is 1:
         r = int(234.0)
@@ -311,6 +314,7 @@ try:
                         print(counter)
                         setFace(counter)
                         currentProgram = "face"
+
                 clkLastState = clkState
                 sleep(0.0001)
 finally:
