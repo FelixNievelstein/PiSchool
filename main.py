@@ -219,12 +219,33 @@ def setLight():
         clearDisplay()
         rgbmatrix5x5.set_brightness(0.64)
         clearTimer()
-        red = ColorModel(238, 34, 12)
-        setRoundLight(red)
+    
+    red = ColorModel(238, 34, 12)
+    setRoundLight(red)
     
 def setLightOrange():
     orange = ColorModel(255, 138, 16)
     setRoundLight(orange)
+    global displayTimer
+    mDisplayTimer = threading.Timer(2.0, setLightGreen)
+    mDisplayTimer.start()
+    displayTimer = mDisplayTimer
+
+def setLightGreen():
+    green = ColorModel(97, 216, 54)
+    setRoundLight(green)
+    global displayTimer
+    mDisplayTimer = threading.Timer(5.0, setLightOrange)
+    mDisplayTimer.start()
+    displayTimer = mDisplayTimer
+
+def setLightOrangeEnd():
+    orange = ColorModel(255, 138, 16)
+    setRoundLight(orange)
+    global displayTimer
+    mDisplayTimer = threading.Timer(2.0, endLightProgram)
+    mDisplayTimer.start()
+    displayTimer = mDisplayTimer
 
 def setRoundLight(color):
     
@@ -250,6 +271,12 @@ def setRoundLight(color):
     rgbmatrix5x5.set_pixel(4, 2, color.r, color.g, color.b)
     rgbmatrix5x5.set_pixel(4, 3, color.r, color.g, color.b)
     rgbmatrix5x5.show()
+
+def endLightProgram(): 
+    global currentProgram
+    currentProgram = ""
+    setLight()
+    currentProgram = "light"
 
 # Run script for the program
 try:
