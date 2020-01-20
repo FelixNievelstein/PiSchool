@@ -58,10 +58,7 @@ def clearTimer():
 
 # Sets one of the smiley faces to the rgb matrix
 def setFace(number):
-    global currentProgram
-    if currentProgram != "face":
-        clearDisplay()
-
+    clearDisplay()
     clearTimer()
     if number is 1:
         r = int(234.0)
