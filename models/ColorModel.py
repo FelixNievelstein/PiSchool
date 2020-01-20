@@ -9,5 +9,5 @@ class ColorModel(object):
 class ColorHelper:
 
     @staticmethod    
-    def whiteColor(self):
+    def whiteColor():
         return ColorModel(255, 255, 255)
