@@ -14,6 +14,9 @@ from models.ColorModel import ColorModel, ColorHelper
 # Display timer that resets display
 displayTimer = None
 
+# String which defines the current running program.
+currentProgram = None
+
 # Used GPIO Pins
 clk = 17
 dt = 18
@@ -168,6 +171,7 @@ def setRandom():
     mDisplayTimer = threading.Timer(3.0, clearDisplay)
     mDisplayTimer.start()
     displayTimer = mDisplayTimer
+    rgbmatrix5x5.set_brightness(0.64)
     if number is 0:
         rgbmatrix5x5.set_pixel(2, 2, white.r, white.g, white.b)
         rgbmatrix5x5.show()
@@ -204,13 +208,25 @@ def setRandom():
 
 # Sets traffic light
 def setLight():
-    clearTimer()
-    red = ColorModel(238, 34, 12)
-    setRoundLight(red)
+    global currentProgram
+    global displayTimer
+    if currentProgram is "light":
+        mDisplayTimer = threading.Timer(5.0, clearDisplay)
+        mDisplayTimer.start()
+        displayTimer = mDisplayTimer
+    else:
+        clearDisplay()
+        rgbmatrix5x5.set_brightness(0.64)
+        clearTimer()
+        red = ColorModel(238, 34, 12)
+        setRoundLight(red)
     
+def setLightOrange():
+    orange = ColorModel(255, 138, 16)
+    setRoundLight(orange)
 
 def setRoundLight(color):
-    clearDisplay()
+    
     rgbmatrix5x5.set_pixel(0, 1, color.r, color.g, color.b)
     rgbmatrix5x5.set_pixel(0, 2, color.r, color.g, color.b)
     rgbmatrix5x5.set_pixel(0, 3, color.r, color.g, color.b)
@@ -242,15 +258,17 @@ try:
                 dtState = GPIO.input(dt)
                 btnAState = GPIO.input(buttonA)
                 btnBState = GPIO.input(buttonB)
-
+                global currentProgram
                 if btnAState != lastStateBtnA:
                     if btnAState is 1:
                         setLight()
                     lastStateBtnA = btnAState
+                    currentProgram = "light"
                 if btnBState != lastStateBtnB:
                     if btnBState is 1:
                         setRandom()
                     lastStateBtnB = btnBState
+                    currentProgram = "random"
                 if clkState != clkLastState:
                         if dtState != clkState:
                                 counter += 1
@@ -262,6 +280,7 @@ try:
                             counter = 13
                         print(counter)
                         setFace(counter)
+                        currentProgram = "face"
                 clkLastState = clkState
                 sleep(0.0001)
 finally:
