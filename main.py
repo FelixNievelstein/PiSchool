@@ -259,16 +259,17 @@ try:
                 dtState = GPIO.input(dt)
                 btnAState = GPIO.input(buttonA)
                 btnBState = GPIO.input(buttonB)
-                global currentProgram
                 if btnAState != lastStateBtnA:
                     if btnAState is 1:
                         setLight()
                     lastStateBtnA = btnAState
+                    
                     currentProgram = "light"
                 if btnBState != lastStateBtnB:
                     if btnBState is 1:
                         setRandom()
                     lastStateBtnB = btnBState
+                    currentProgram
                     currentProgram = "random"
                 if clkState != clkLastState:
                         if dtState != clkState:
