@@ -303,7 +303,7 @@ try:
                                 counter += 1
                         else:
                                 counter -= 1
-                        if counter >= 8:
+                        if counter >= 7:
                             counter = 0
                         if counter < 0:
                             counter = 7
