@@ -220,6 +220,7 @@ def setLight():
     print(currentProgram)
     global displayTimer
     if currentProgram == "light":
+        clearTimer()
         mDisplayTimer = threading.Timer(5.0, setLightOrange)
         mDisplayTimer.start()
         displayTimer = mDisplayTimer
