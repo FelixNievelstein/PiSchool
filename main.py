@@ -30,7 +30,7 @@ GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(buttonA, GPIO.IN)
 GPIO.setup(buttonB, GPIO.IN)
-GPIO.setup(motor, GPIO.OUT, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(motor, GPIO.OUT)
 
 # Counter for rotarty encoder
 counter = 0
