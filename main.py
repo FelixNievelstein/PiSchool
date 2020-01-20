@@ -50,6 +50,9 @@ def clearDisplay():
 
 # Sets one of the smiley faces to the rgb matrix
 def setFace(number):
+    global displayTimer
+    if displayTimer is not None:
+        displayTimer.cancel()
     if number is 2:
         r = int(234.0)
         g = int(43.0)
@@ -195,7 +198,10 @@ def setRandom():
         rgbmatrix5x5.set_pixel(3, 4, white.r, white.g, white.b)
         rgbmatrix5x5.show()
 
-    print(number)
+# Sets traffic light
+def setLight():
+    clearDisplay()
+
 
 # Run script for the program
 try:
