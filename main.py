@@ -217,7 +217,6 @@ def setOrangeLight():
 # Sets traffic light
 def setLight():
     global currentProgram
-    print(currentProgram)
     global displayTimer
     if currentProgram == "light":
         clearTimer()
@@ -308,7 +307,6 @@ try:
                             counter = 0
                         if counter < 0:
                             counter = 7
-                        print(counter)
                         setFace(counter)
                         currentProgram = "face"
 
