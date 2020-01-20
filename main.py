@@ -163,6 +163,27 @@ def setRandom():
         rgbmatrix5x5.set_pixel(2, 2, white.r, white.g, white.b)
         rgbmatrix5x5.set_pixel(4, 0, white.r, white.g, white.b)
         rgbmatrix5x5.show()
+    elif number is 3:
+        rgbmatrix5x5.set_pixel(1, 1, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(1, 3, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(3, 1, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(3, 3, white.r, white.g, white.b)
+        rgbmatrix5x5.show()
+    elif number is 4:
+        rgbmatrix5x5.set_pixel(0, 0, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(0, 4, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(4, 0, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(4, 4, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(2, 2, white.r, white.g, white.b)
+        rgbmatrix5x5.show()
+    elif number is 5:
+        rgbmatrix5x5.set_pixel(1, 0, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(3, 0, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(1, 2, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(3, 2, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(1, 4, white.r, white.g, white.b)
+        rgbmatrix5x5.set_pixel(3, 4, white.r, white.g, white.b)
+        rgbmatrix5x5.show()
 
     print(number)
 
