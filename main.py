@@ -1,5 +1,6 @@
 import time
 import colorsys
+import random
 try:
     import numpy
 except ImportError:
@@ -35,6 +36,12 @@ rgbmatrix5x5.set_clear_on_exit()
 rgbmatrix5x5.set_brightness(0.5)
 height = rgbmatrix5x5.height
 width = rgbmatrix5x5.width
+
+def clearDisplay():
+    for y in range(height):
+        for x in range(width):
+            rgbmatrix5x5.set_pixel(x, y, 0, 0, 0)
+        rgbmatrix5x5.show()
 
 # Sets one of the smiley faces to the rgb matrix
 def setFace(number):
@@ -136,11 +143,13 @@ def setFace(number):
         rgbmatrix5x5.set_brightness(1.0)
         rgbmatrix5x5.show()
     else:
-        for y in range(height):
-            for x in range(width):
-                rgbmatrix5x5.set_pixel(x, y, 0, 0, 0)
-        rgbmatrix5x5.show()
+        clearDisplay()
 
+# Show random number
+def setRandom():
+    clearDisplay()
+    number = random.randrange(5)
+    print(number)
 
 # Run script for the program
 try:
