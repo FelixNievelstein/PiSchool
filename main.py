@@ -166,6 +166,8 @@ try:
                                 counter -= 1
                         if counter >= 14:
                             counter = 0
+                        if counter < 0:
+                            counter = 14
                         print(counter)
                         setFace(counter)
                 clkLastState = clkState
