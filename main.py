@@ -22,6 +22,7 @@ clk = 17
 dt = 18
 buttonA = 9
 buttonB = 10
+motor = 21
 
 # Set GPIO Mode and Pins
 GPIO.setmode(GPIO.BCM)
@@ -29,6 +30,7 @@ GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(buttonA, GPIO.IN)
 GPIO.setup(buttonB, GPIO.IN)
+GPIO.setup(motor, GPIO.OUT, pull_up_down=GPIO.PUD_DOWN)
 
 # Counter for rotarty encoder
 counter = 0
