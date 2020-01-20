@@ -1,43 +1,42 @@
 import time
 import colorsys
-
 try:
     import numpy
 except ImportError:
     exit("This script requires the numpy module\nInstall with: sudo pip install numpy")
-
 from rgbmatrix5x5 import RGBMatrix5x5
 from RPi import GPIO
 from time import sleep
 
+# Used GPIO Pins
 clk = 17
 dt = 18
 buttonA = 9
 buttonB = 10
 
+# Set GPIO Mode and Pins
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(buttonA, GPIO.IN)
 GPIO.setup(buttonB, GPIO.IN)
 
+# Counter for rotarty encoder
 counter = 0
 clkLastState = GPIO.input(clk)
+
+# Last state of GPIO for buttons
 lastStateBtnA = GPIO.input(buttonA)
+lastStateBtnB = GPIO.input(buttonB)
 
+# Configure RGB matrix
 rgbmatrix5x5 = RGBMatrix5x5()
-
 rgbmatrix5x5.set_clear_on_exit()
 rgbmatrix5x5.set_brightness(0.5)
-
 height = rgbmatrix5x5.height
 width = rgbmatrix5x5.width
 
-if height == width:
-    delta = 0
-else:
-    delta = 2
-
+# Sets one of the smiley faces to the rgb matrix
 def setFace(number):
     if number is 2:
         r = int(234.0)
@@ -49,9 +48,9 @@ def setFace(number):
         rgbmatrix5x5.set_pixel(3, 1, r, g, b)
         rgbmatrix5x5.set_pixel(1, 3, r, g, b)
         rgbmatrix5x5.set_pixel(3, 3, r, g, b)
-        rgbmatrix5x5.set_pixel(0, 4, r, g, b)
-        rgbmatrix5x5.set_pixel(2, 4, r, g, b)
-        rgbmatrix5x5.set_pixel(4, 4, r, g, b)
+        rgbmatrix5x5.set_pixel(0, 3, r, g, b)
+        rgbmatrix5x5.set_pixel(2, 3, r, g, b)
+        rgbmatrix5x5.set_pixel(4, 3, r, g, b)
         rgbmatrix5x5.set_brightness(0.16)
         rgbmatrix5x5.show()
     elif number is 4:
@@ -142,6 +141,8 @@ def setFace(number):
                 rgbmatrix5x5.set_pixel(x, y, 0, 0, 0)
         rgbmatrix5x5.show()
 
+
+# Run script for the program
 try:
 
         while True:
@@ -167,33 +168,3 @@ try:
                 sleep(0.0001)
 finally:
         GPIO.cleanup()
-
-
-
-
-
-
-""" def make_gaussian(fwhm):
-    x = numpy.arange(0, 5, 1, float)
-    y = x[:, numpy.newaxis]
-    x0, y0 = 2, 2
-    fwhm = fwhm
-    gauss = numpy.exp(-4 * numpy.log(2) * ((x - x0) ** 2 + (y - y0) ** 2) / fwhm ** 2)
-    return gauss
-
-
-while True:
-    for z in list(range(1, 10)[::-1]) + list(range(1, 10)):
-        fwhm = 5.0 / z
-        gauss = make_gaussian(fwhm)
-        start = time.time()
-        
-        r = int(1 * 255.0)
-        g = int(0.0 * 255.0)
-        b = int(0.0 * 255.0)
-        rgbmatrix5x5.set_pixel(0, 0, r, g, b)
-        rgbmatrix5x5.show()
-        end = time.time()
-        t = end - start
-        if t < 0.04:
-            time.sleep(0.04 - t) """
