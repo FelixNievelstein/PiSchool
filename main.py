@@ -11,6 +11,9 @@ from RPi import GPIO
 from time import sleep
 from models.ColorModel import ColorModel, ColorHelper
 
+# Display timer that resets display
+displayTimer = None
+
 # Used GPIO Pins
 clk = 17
 dt = 18
@@ -39,16 +42,11 @@ rgbmatrix5x5.set_brightness(0.5)
 height = rgbmatrix5x5.height
 width = rgbmatrix5x5.width
 
-# Display timer that resets display
-displayTimer = None
-
 def clearDisplay():
     for y in range(height):
         for x in range(width):
             rgbmatrix5x5.set_pixel(x, y, 0, 0, 0)
         rgbmatrix5x5.show()
-    if displayTimer is not None:
-        displayTimer.stop()
 
 # Sets one of the smiley faces to the rgb matrix
 def setFace(number):
@@ -157,8 +155,12 @@ def setRandom():
     clearDisplay()
     number = random.randrange(6)
     white = ColorHelper.whiteColor()
-    displayTimer = threading.Timer(3.0, clearDisplay)
-    displayTimer.start()
+    global displayTimer
+    if displayTimer is not None:
+        displayTimer.cancel()
+    mDisplayTimer = threading.Timer(3.0, clearDisplay)
+    mDisplayTimer.start()
+    displayTimer = mDisplayTimer
     if number is 0:
         rgbmatrix5x5.set_pixel(2, 2, white.r, white.g, white.b)
         rgbmatrix5x5.show()
