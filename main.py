@@ -167,6 +167,8 @@ try:
                 if btnBState != lastStateBtnB:
                     print("Button B")
                     print(btnBState)
+                    if btnBState is 1:
+                        setRandom()
                     lastStateBtnB = btnBState
                 if clkState != clkLastState:
                         if dtState != clkState:
