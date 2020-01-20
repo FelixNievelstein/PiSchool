@@ -208,6 +208,7 @@ def setRandom():
 
 # Sets traffic light
 def setLight():
+    print(currentProgram)
     global currentProgram
     global displayTimer
     if currentProgram is "light":
