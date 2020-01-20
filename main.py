@@ -170,7 +170,7 @@ def setRandom():
     number = random.randrange(6)
     white = ColorHelper.whiteColor()    
     global displayTimer
-    mDisplayTimer = threading.Timer(3.0, clearDisplay)
+    mDisplayTimer = threading.Timer(3.0, clearRandom)
     mDisplayTimer.start()
     displayTimer = mDisplayTimer
     rgbmatrix5x5.set_brightness(0.64)
@@ -182,6 +182,7 @@ def setRandom():
         rgbmatrix5x5.set_pixel(3, 1, white.r, white.g, white.b)
         rgbmatrix5x5.show()
     elif number is 2:
+        setMotor(True)
         rgbmatrix5x5.set_pixel(0, 4, white.r, white.g, white.b)
         rgbmatrix5x5.set_pixel(2, 2, white.r, white.g, white.b)
         rgbmatrix5x5.set_pixel(4, 0, white.r, white.g, white.b)
@@ -200,6 +201,7 @@ def setRandom():
         rgbmatrix5x5.set_pixel(2, 2, white.r, white.g, white.b)
         rgbmatrix5x5.show()
     elif number is 5:
+        setMotor(True)
         rgbmatrix5x5.set_pixel(1, 0, white.r, white.g, white.b)
         rgbmatrix5x5.set_pixel(3, 0, white.r, white.g, white.b)
         rgbmatrix5x5.set_pixel(1, 2, white.r, white.g, white.b)
@@ -207,6 +209,16 @@ def setRandom():
         rgbmatrix5x5.set_pixel(1, 4, white.r, white.g, white.b)
         rgbmatrix5x5.set_pixel(3, 4, white.r, white.g, white.b)
         rgbmatrix5x5.show()
+
+def setMotor(enabled: bool):
+    if enabled:
+        GPIO.output(motor, GPIO.HIGH)
+    else:
+        GPIO.output(motor, GPIO.LOW)
+
+def clearRandom():
+    clearDisplay()
+    setMotor(false)
 
 def setRedLight():
     red = ColorModel(238, 34, 12)
