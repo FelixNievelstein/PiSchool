@@ -149,7 +149,7 @@ def setFace(number):
 # Show random number
 def setRandom():
     clearDisplay()
-    number = random.randrange(5)
+    number = random.randrange(6)
     white = ColorHelper.whiteColor()
     if number is 0:
         rgbmatrix5x5.set_pixel(2, 2, white.r, white.g, white.b)
