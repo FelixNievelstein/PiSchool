@@ -15,7 +15,7 @@ from models.ColorModel import ColorModel, ColorHelper
 displayTimer = None
 
 # String which defines the current running program.
-currentProgram = None
+currentProgram = ""
 
 # Used GPIO Pins
 clk = 17
