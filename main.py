@@ -157,7 +157,7 @@ try:
                     lastStateBtnA = btnAState
                 if btnBState != lastStateBtnB:
                     print("Button B")
-                    print(btnAState)
+                    print(btnBState)
                     lastStateBtnA = btnAState
                 if clkState != clkLastState:
                         if dtState != clkState:
