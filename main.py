@@ -210,7 +210,7 @@ def setRandom():
         rgbmatrix5x5.set_pixel(3, 4, white.r, white.g, white.b)
         rgbmatrix5x5.show()
 
-def setMotor(enabled: bool):
+def setMotor(enabled):
     if enabled:
         GPIO.output(motor, GPIO.HIGH)
     else:
@@ -218,7 +218,7 @@ def setMotor(enabled: bool):
 
 def clearRandom():
     clearDisplay()
-    setMotor(false)
+    setMotor(False)
 
 def setRedLight():
     red = ColorModel(238, 34, 12)
