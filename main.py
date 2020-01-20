@@ -235,7 +235,7 @@ def setLightGreen():
     green = ColorModel(97, 216, 54)
     setRoundLight(green)
     global displayTimer
-    mDisplayTimer = threading.Timer(5.0, setLightOrange)
+    mDisplayTimer = threading.Timer(5.0, setLightOrangeEnd)
     mDisplayTimer.start()
     displayTimer = mDisplayTimer
 
