@@ -206,6 +206,14 @@ def setRandom():
         rgbmatrix5x5.set_pixel(3, 4, white.r, white.g, white.b)
         rgbmatrix5x5.show()
 
+def setRedLight():
+    red = ColorModel(238, 34, 12)
+    setRoundLight(red)
+
+def setOrangeLight(): 
+    orange = ColorModel(255, 138, 16)
+    setRoundLight(orange)
+
 # Sets traffic light
 def setLight():
     global currentProgram
@@ -220,12 +228,10 @@ def setLight():
         rgbmatrix5x5.set_brightness(0.64)
         clearTimer()
     
-    red = ColorModel(238, 34, 12)
-    setRoundLight(red)
-    
+    setRedLight()
+
 def setLightOrange():
-    orange = ColorModel(255, 138, 16)
-    setRoundLight(orange)
+    setOrangeLight()
     global displayTimer
     mDisplayTimer = threading.Timer(2.0, setLightGreen)
     mDisplayTimer.start()
@@ -240,15 +246,13 @@ def setLightGreen():
     displayTimer = mDisplayTimer
 
 def setLightOrangeEnd():
-    orange = ColorModel(255, 138, 16)
-    setRoundLight(orange)
+    setOrangeLight()
     global displayTimer
     mDisplayTimer = threading.Timer(2.0, endLightProgram)
     mDisplayTimer.start()
     displayTimer = mDisplayTimer
 
-def setRoundLight(color):
-    
+def setRoundLight(color):    
     rgbmatrix5x5.set_pixel(0, 1, color.r, color.g, color.b)
     rgbmatrix5x5.set_pixel(0, 2, color.r, color.g, color.b)
     rgbmatrix5x5.set_pixel(0, 3, color.r, color.g, color.b)
@@ -273,10 +277,7 @@ def setRoundLight(color):
     rgbmatrix5x5.show()
 
 def endLightProgram(): 
-    global currentProgram
-    currentProgram = ""
-    setLight()
-    currentProgram = "light"
+    setRedLight()
 
 # Run script for the program
 try:
