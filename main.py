@@ -48,11 +48,15 @@ def clearDisplay():
             rgbmatrix5x5.set_pixel(x, y, 0, 0, 0)
         rgbmatrix5x5.show()
 
-# Sets one of the smiley faces to the rgb matrix
-def setFace(number):
+def clearTimer():
     global displayTimer
     if displayTimer is not None:
         displayTimer.cancel()
+
+# Sets one of the smiley faces to the rgb matrix
+def setFace(number):
+    clearDisplay()
+    clearTimer()
     if number is 2:
         r = int(234.0)
         g = int(43.0)
@@ -156,11 +160,11 @@ def setFace(number):
 # Show random number
 def setRandom():
     clearDisplay()
+    clearTimer()
+
     number = random.randrange(6)
-    white = ColorHelper.whiteColor()
+    white = ColorHelper.whiteColor()    
     global displayTimer
-    if displayTimer is not None:
-        displayTimer.cancel()
     mDisplayTimer = threading.Timer(3.0, clearDisplay)
     mDisplayTimer.start()
     displayTimer = mDisplayTimer
@@ -200,8 +204,35 @@ def setRandom():
 
 # Sets traffic light
 def setLight():
-    clearDisplay()
+    clearTimer()
+    red = ColorModel(238, 34, 12)
+    setRoundLight(red)
+    
 
+def setRoundLight(color):
+    clearDisplay()
+    rgbmatrix5x5.set_pixel(0, 1, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(0, 2, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(0, 3, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(1, 0, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(1, 1, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(1, 2, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(1, 3, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(1, 4, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(2, 0, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(2, 1, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(2, 2, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(2, 3, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(2, 4, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(3, 0, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(3, 1, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(3, 2, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(3, 3, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(3, 4, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(4, 1, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(4, 2, color.r, color.g, color.b)
+    rgbmatrix5x5.set_pixel(4, 3, color.r, color.g, color.b)
+    rgbmatrix5x5.show()
 
 # Run script for the program
 try:
@@ -213,8 +244,8 @@ try:
                 btnBState = GPIO.input(buttonB)
 
                 if btnAState != lastStateBtnA:
-                    print("Button A")
-                    print(btnAState)
+                    if btnAState is 1:
+                        setLight()
                     lastStateBtnA = btnAState
                 if btnBState != lastStateBtnB:
                     if btnBState is 1:
